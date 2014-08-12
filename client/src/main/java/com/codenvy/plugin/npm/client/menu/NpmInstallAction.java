@@ -11,20 +11,17 @@
 package com.codenvy.plugin.npm.client.menu;
 
 import com.codenvy.api.analytics.logger.AnalyticsEventLogger;
-import com.codenvy.api.analytics.logger.EventLogger;
 import com.codenvy.api.builder.BuildStatus;
 import com.codenvy.api.builder.dto.BuildOptions;
-import com.codenvy.ide.api.resources.ResourceProvider;
-import com.codenvy.ide.api.resources.model.Project;
-import com.codenvy.ide.api.ui.action.Action;
-import com.codenvy.ide.api.ui.action.ActionEvent;
+import com.codenvy.ide.api.action.ActionEvent;
+import com.codenvy.ide.api.app.AppContext;
+import com.codenvy.ide.api.event.RefreshProjectTreeEvent;
 import com.codenvy.ide.dto.DtoFactory;
 import com.codenvy.plugin.npm.client.NpmExtension;
 import com.codenvy.plugin.npm.client.builder.BuildFinishedCallback;
 import com.codenvy.plugin.npm.client.builder.BuilderAgent;
-import com.codenvy.plugin.npm.client.menu.LocalizationConstant;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,22 +36,21 @@ public class NpmInstallAction extends CustomAction implements BuildFinishedCallb
 
     private BuilderAgent builderAgent;
 
-    private ResourceProvider resourceProvider;
+    private EventBus eventBus;
 
     private boolean buildInProgress;
 
     private final AnalyticsEventLogger analyticsEventLogger;
 
-
     @Inject
     public NpmInstallAction(LocalizationConstant localizationConstant,
-                            DtoFactory dtoFactory, BuilderAgent builderAgent, ResourceProvider resourceProvider,
-                            AnalyticsEventLogger analyticsEventLogger) {
-        super(resourceProvider, localizationConstant.npmInstallText(), localizationConstant.npmInstallDescription());
+                            DtoFactory dtoFactory, BuilderAgent builderAgent, AppContext appContext,
+                            AnalyticsEventLogger analyticsEventLogger, EventBus eventBus) {
+        super(appContext, localizationConstant.npmInstallText(), localizationConstant.npmInstallDescription());
         this.dtoFactory = dtoFactory;
         this.builderAgent = builderAgent;
-        this.resourceProvider = resourceProvider;
         this.analyticsEventLogger = analyticsEventLogger;
+        this.eventBus = eventBus;
     }
 
     /** {@inheritDoc} */
@@ -77,15 +73,7 @@ public class NpmInstallAction extends CustomAction implements BuildFinishedCallb
     public void onFinished(BuildStatus buildStatus) {
         // and refresh the tree if success
         if (buildStatus == BuildStatus.SUCCESSFUL) {
-            resourceProvider.getActiveProject().refreshChildren(new AsyncCallback<Project>() {
-                @Override
-                public void onSuccess(Project result) {
-            }
-
-            @Override
-            public void onFailure(Throwable caught) {
-            }
-        });
+            eventBus.fireEvent(new RefreshProjectTreeEvent());
         }
 
         // build finished
