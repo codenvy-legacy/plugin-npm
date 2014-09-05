@@ -34,7 +34,7 @@ public abstract class CustomAction extends Action {
         public void update (ActionEvent e){
             CurrentProject activeProject = appContext.getCurrentProject();
             if (activeProject != null) {
-                final String projectTypeId = activeProject.getProjectDescription().getProjectTypeId();
+                final String projectTypeId = activeProject.getRootProject().getProjectTypeId();
                 boolean isAngularJSProject = "AngularJS".equals(projectTypeId);
                 e.getPresentation().setVisible(isAngularJSProject);
             } else {
