@@ -56,7 +56,7 @@ public class NpmInstallAction extends CustomAction implements BuildFinishedCallb
     /** {@inheritDoc} */
     @Override
     public void actionPerformed(ActionEvent e) {
-        analyticsEventLogger.log(NpmExtension.class, "Install NPM");
+        analyticsEventLogger.log(this);
         installDependencies();
     }
 
