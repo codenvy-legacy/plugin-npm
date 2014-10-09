@@ -18,6 +18,7 @@ import com.codenvy.ide.api.app.CurrentProject;
 
 /**
  * Allow to hide elements if the current project is not an angular project.
+ *
  * @author Florent Benoit
  */
 public abstract class CustomAction extends Action {
@@ -29,16 +30,16 @@ public abstract class CustomAction extends Action {
         this.appContext = appContext;
     }
 
-        /** {@inheritDoc} */
-        @Override
-        public void update (ActionEvent e){
-            CurrentProject activeProject = appContext.getCurrentProject();
-            if (activeProject != null) {
-                final String projectTypeId = activeProject.getRootProject().getProjectTypeId();
-                boolean isAngularJSProject = "AngularJS".equals(projectTypeId);
-                e.getPresentation().setVisible(isAngularJSProject);
-            } else {
-                e.getPresentation().setEnabledAndVisible(false);
-            }
+    /** {@inheritDoc} */
+    @Override
+    public void update(ActionEvent e) {
+        CurrentProject activeProject = appContext.getCurrentProject();
+        if (activeProject != null) {
+            final String projectTypeId = activeProject.getRootProject().getType();
+            boolean isAngularJSProject = "AngularJS".equals(projectTypeId);
+            e.getPresentation().setVisible(isAngularJSProject);
+        } else {
+            e.getPresentation().setEnabledAndVisible(false);
         }
     }
+}
