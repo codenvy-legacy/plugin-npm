@@ -23,7 +23,7 @@ import com.google.inject.Singleton;
  * @author Florent Benoit
  */
 @Singleton
-@Extension(title = "NPM extension")
+@Extension(title = "NPM")
 public class NpmExtension {
 
     @Inject
