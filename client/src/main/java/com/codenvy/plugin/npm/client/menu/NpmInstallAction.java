@@ -10,14 +10,13 @@
  *******************************************************************************/
 package com.codenvy.plugin.npm.client.menu;
 
-import com.codenvy.api.analytics.logger.AnalyticsEventLogger;
+import com.codenvy.api.analytics.client.logger.AnalyticsEventLogger;
 import com.codenvy.api.builder.BuildStatus;
 import com.codenvy.api.builder.dto.BuildOptions;
 import com.codenvy.ide.api.action.ActionEvent;
 import com.codenvy.ide.api.app.AppContext;
 import com.codenvy.ide.api.event.RefreshProjectTreeEvent;
 import com.codenvy.ide.dto.DtoFactory;
-import com.codenvy.plugin.npm.client.NpmExtension;
 import com.codenvy.plugin.npm.client.builder.BuildFinishedCallback;
 import com.codenvy.plugin.npm.client.builder.BuilderAgent;
 import com.google.inject.Inject;
