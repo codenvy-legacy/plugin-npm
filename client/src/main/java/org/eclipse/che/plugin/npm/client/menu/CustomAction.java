@@ -8,13 +8,13 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package com.codenvy.plugin.npm.client.menu;
+package org.eclipse.che.plugin.npm.client.menu;
 
 
-import com.codenvy.ide.api.action.Action;
-import com.codenvy.ide.api.action.ActionEvent;
-import com.codenvy.ide.api.app.AppContext;
-import com.codenvy.ide.api.app.CurrentProject;
+import org.eclipse.che.ide.api.action.Action;
+import org.eclipse.che.ide.api.action.ActionEvent;
+import org.eclipse.che.ide.api.app.AppContext;
+import org.eclipse.che.ide.api.app.CurrentProject;
 
 /**
  * Allow to hide elements if the current project is not an angular project.

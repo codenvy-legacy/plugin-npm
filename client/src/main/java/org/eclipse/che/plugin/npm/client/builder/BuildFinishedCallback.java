@@ -8,24 +8,14 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package com.codenvy.plugin.npm.builder;
+package org.eclipse.che.plugin.npm.client.builder;
 
-import com.codenvy.api.builder.internal.Builder;
-import com.codenvy.inject.DynaModule;
-import com.google.inject.AbstractModule;
-import com.google.inject.multibindings.Multibinder;
+import org.eclipse.che.api.builder.BuildStatus;
 
 /**
- * Module for NPM.
  * @author Florent Benoit
  */
-@DynaModule
-public class NpmLauncherModule extends AbstractModule {
+public interface BuildFinishedCallback {
 
-    @Override
-    protected void configure() {
-        Multibinder<Builder> multiBinder = Multibinder.newSetBinder(binder(), Builder.class);
-        multiBinder.addBinding().to(NpmBuilder.class);
-
-    }
+    void onFinished(BuildStatus buildStatus);
 }

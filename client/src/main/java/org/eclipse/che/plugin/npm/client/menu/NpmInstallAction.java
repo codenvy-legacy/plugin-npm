@@ -8,17 +8,18 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package com.codenvy.plugin.npm.client.menu;
+package org.eclipse.che.plugin.npm.client.menu;
 
-import com.codenvy.api.analytics.client.logger.AnalyticsEventLogger;
-import com.codenvy.api.builder.BuildStatus;
-import com.codenvy.api.builder.dto.BuildOptions;
-import com.codenvy.ide.api.action.ActionEvent;
-import com.codenvy.ide.api.app.AppContext;
-import com.codenvy.ide.api.event.RefreshProjectTreeEvent;
-import com.codenvy.ide.dto.DtoFactory;
-import com.codenvy.plugin.npm.client.builder.BuildFinishedCallback;
-import com.codenvy.plugin.npm.client.builder.BuilderAgent;
+import org.eclipse.che.api.analytics.client.logger.AnalyticsEventLogger;
+import org.eclipse.che.api.builder.BuildStatus;
+import org.eclipse.che.api.builder.dto.BuildOptions;
+import org.eclipse.che.ide.api.action.ActionEvent;
+import org.eclipse.che.ide.api.app.AppContext;
+import org.eclipse.che.ide.api.event.RefreshProjectTreeEvent;
+import org.eclipse.che.ide.dto.DtoFactory;
+import org.eclipse.che.plugin.npm.client.builder.BuilderAgent;
+import org.eclipse.che.plugin.npm.client.builder.BuildFinishedCallback;
+
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 

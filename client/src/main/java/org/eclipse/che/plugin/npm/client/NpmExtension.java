@@ -8,13 +8,14 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package com.codenvy.plugin.npm.client;
+package org.eclipse.che.plugin.npm.client;
 
-import com.codenvy.ide.api.action.ActionManager;
-import com.codenvy.ide.api.extension.Extension;
-import com.codenvy.ide.extension.builder.client.BuilderLocalizationConstant;
-import com.codenvy.plugin.npm.client.menu.LocalizationConstant;
-import com.codenvy.plugin.npm.client.menu.NpmInstallAction;
+import org.eclipse.che.ide.api.action.ActionManager;
+import org.eclipse.che.ide.api.extension.Extension;
+import org.eclipse.che.ide.extension.builder.client.BuilderLocalizationConstant;
+import org.eclipse.che.plugin.npm.client.menu.LocalizationConstant;
+import org.eclipse.che.plugin.npm.client.menu.NpmInstallAction;
+
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

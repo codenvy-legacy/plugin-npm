@@ -8,16 +8,16 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package com.codenvy.plugin.npm.builder;
+package org.eclipse.che.plugin.npm.builder;
 
-import com.codenvy.api.builder.BuilderException;
-import com.codenvy.api.builder.internal.BuildResult;
-import com.codenvy.api.builder.internal.Builder;
-import com.codenvy.api.builder.internal.BuilderConfiguration;
-import com.codenvy.api.builder.internal.Constants;
-import com.codenvy.api.core.notification.EventService;
-import com.codenvy.api.core.util.CommandLine;
-import com.codenvy.commons.lang.ZipUtils;
+import org.eclipse.che.api.builder.BuilderException;
+import org.eclipse.che.api.builder.internal.BuildResult;
+import org.eclipse.che.api.builder.internal.Builder;
+import org.eclipse.che.api.builder.internal.BuilderConfiguration;
+import org.eclipse.che.api.builder.internal.Constants;
+import org.eclipse.che.api.core.notification.EventService;
+import org.eclipse.che.api.core.util.CommandLine;
+import org.eclipse.che.commons.lang.ZipUtils;
 
 import javax.inject.Inject;
 import javax.inject.Named;

@@ -8,7 +8,7 @@
  * Contributors:
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
-package com.codenvy.plugin.npm.client.menu;
+package org.eclipse.che.plugin.npm.client.menu;
 
 import com.google.gwt.i18n.client.Messages;
 
